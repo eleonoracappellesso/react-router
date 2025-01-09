@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 // import { allPosts } from "../data/post";
-import CardComponent from "./CardComponent"
-import PostForm from "./PostForm";
+import CardComponent from "../components/CardComponent"
+import PostForm from "../pages/PostForm";
 
 import axios from "axios";
 
@@ -28,9 +28,10 @@ function MainComponent() {
     }
 
     // funzione che accetta il nuovo post, crea una copia dell'array di post esistenti e aggiunge il nuovo
-    function handleNewPost(newPost) {
-        setPosts([...posts, newPost])
-    }
+
+    // function handleNewPost(newPost) {
+    //     setPosts([...posts, newPost])
+    // }
 
     function handleDeletePost(id) {
         axios.delete(myApiUrl + '/' + id).then((res) => {
@@ -38,24 +39,26 @@ function MainComponent() {
         });
     }
 
-    function handleTag(e) {
-        setPosts((post) => {
-            let { tags, ...others } = post;
-            if (tags.includes(e.target.value)) {
-                tags = tags.filter((val) => val !== e.target.value);
-            } else {
-                tags = [...tags, e.target.value];
-            }
-            return {
-                tags,
-                ...others,
-            };
-        });
-    }
+    // function handleTag(e) {
+    //     setPosts((post) => {
+    //         let { tags, ...others } = post;
+    //         if (tags.includes(e.target.value)) {
+    //             tags = tags.filter((val) => val !== e.target.value);
+    //         } else {
+    //             tags = [...tags, e.target.value];
+    //         }
+    //         return {
+    //             tags,
+    //             ...others,
+    //         };
+    //     });
+    // }
 
     // struttura del main component
+
     return (
         <main className="container">
+            <h1 className="text-center my-3">Il mio blog</h1>
             <section className="d-flex justify-content-center flex-wrap align-items-center">
                 {posts.map((post) => (
                     post.published ? <CardComponent key={post.id} post={post} removePost={handleDeletePost} /> : null
