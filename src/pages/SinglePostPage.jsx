@@ -33,7 +33,7 @@ export default function SinglePostPage() {
             <h1>Sono il post con id {id}</h1>
             {
                 singleElement && (
-                    <CardComponent key={singleElement.id} post={singleElement} />
+                    <CardComponent key={singleElement.post.id} post={singleElement.post.id} />
                 )
             }
         </div>

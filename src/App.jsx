@@ -6,6 +6,7 @@ import ContactPage from "./pages/ContactPage";
 import InfoPage from "./pages/InfoPage";
 import PostForm from "./pages/PostForm";
 import SinglePostPage from "./pages/SinglePostPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             <Route path=":id" Component={SinglePostPage}></Route>
           </Route>
         </Route>
+        <Route path="*" Component={NotFoundPage} />
       </Routes>
     </BrowserRouter>
 
