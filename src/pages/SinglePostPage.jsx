@@ -17,7 +17,7 @@ export default function SinglePostPage() {
             .get(myApiUrl + "/posts/" + id)
             .then((res) => {
                 console.log(res);
-                setSingleElement(res.data);
+                setSingleElement(res.data.item);
             })
             .catch((error) => {
                 console.log(error);
@@ -30,11 +30,15 @@ export default function SinglePostPage() {
 
     return (
         <div>
-            <h1>Sono il post con id {id}</h1>
+
             {
                 singleElement && (
-                    <CardComponent key={singleElement.post.id} post={singleElement.post.id} />
+                    <>
+                        <h1>Sono il post con id {id}</h1>
+                        <CardComponent key={singleElement.id} post={singleElement} />
+                    </>
                 )
+
             }
         </div>
     )

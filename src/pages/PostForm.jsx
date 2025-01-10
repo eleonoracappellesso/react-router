@@ -15,13 +15,14 @@ const initialPost = {
 
 const myApiUrl = "http://localhost:3000";
 
-const navigate = useNavigate();
 
 function PostForm() {
     // const tagList = tags();
     const [post, setPost] = useState(initialPost);
     const [selectedTags, setSelectedTags] = useState([]); // Stato per i tag selezionati
     const [posts, setPosts] = useState([]);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         getTags();
@@ -42,7 +43,9 @@ function PostForm() {
             });
     }
 
+
     function handleSubmit(event) {
+
         event.preventDefault();
 
         console.log(post)
@@ -50,12 +53,15 @@ function PostForm() {
         axios.post(myApiUrl + "/posts", post).then((res) => {
             console.log(res.data);
             setPosts(prev => [...prev, res.data]);
+            const id = res.data.id;
+            navigate('/posts/' + id);
         })
-            .then((res) => {
-                console.log(res.data);
-                const id = res.data.id;
-                navigate('/posts/' + id);
-            });
+        // .then((res) => {
+        //     // console.log(res.data);
+        //     // const id = res.data.id;
+        //     // navigate('/posts/' + id);
+        //     //navigateToPost(id);
+        // });
         setPost(initialPost);
 
         // // controllo se il campo è vuoto
@@ -67,6 +73,11 @@ function PostForm() {
         // setPost(initialPost);
         // setSelectedTags([]); // Resetta i tag selezionati
     }
+
+    // function navigateToPost(id) {
+    //     const id = res.data.id;
+    //     navigate('/posts/' + id);
+    // }
 
     function handleInput(event) {
         const value =
