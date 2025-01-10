@@ -1,6 +1,33 @@
 import { NavLink } from "react-router-dom";
 
+const navmenu = [
+    { path: "/", label: "Home" },
+    { path: "/posts", label: "Blog" },
+    { path: "/create", label: "Crea Post" },
+    { path: "/info", label: "About Us" },
+    { path: "/contact", label: "Contact Us" },
+
+];
+
 function HeaderComponent() {
+
+    function drawNavMenu() {
+        return navmenu.map((item) => (
+            <li className="nav-item" key={item.path}>
+                <NavLink
+                    className="nav-link"
+                    to={item.path}
+                    style={({ isActive }) => ({
+                        // fontWeight: isActive ? "bolder" : "light",
+                        textDecoration: isActive ? "underline" : "none",
+                    })}
+                >
+                    {item.label}
+                </NavLink>
+            </li>
+        ));
+    }
+
     return (
         <>
             <header>
@@ -21,28 +48,7 @@ function HeaderComponent() {
                             <span className="navbar-toggler-icon"></span>
                         </button>
                         <div className="collapse navbar-collapse" id="navbarNav">
-                            <ul className="navbar-nav">
-                                <li className="nav-item">
-                                    <NavLink className="nav-link" to="/">
-                                        Home
-                                    </NavLink>
-                                </li>
-                                <li className="nav-item">
-                                    <NavLink className="nav-link" to="/create">
-                                        Nuovo Post
-                                    </NavLink>
-                                </li>
-                                <li className="nav-item">
-                                    <NavLink className="nav-link" to="/contact">
-                                        Contact Us
-                                    </NavLink>
-                                </li>
-                                <li className="nav-item">
-                                    <NavLink className="nav-link" to="/info">
-                                        About Us
-                                    </NavLink>
-                                </li>
-                            </ul>
+                            <ul className="navbar-nav">{drawNavMenu()}</ul>
                         </div>
                     </div>
                 </nav>
