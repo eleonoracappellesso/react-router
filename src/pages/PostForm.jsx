@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import axios from "axios";
 
@@ -15,7 +15,7 @@ const initialPost = {
 
 const myApiUrl = "http://localhost:3000";
 
-//const navigate = useNavigate();
+const navigate = useNavigate();
 
 function PostForm() {
     // const tagList = tags();
@@ -51,11 +51,11 @@ function PostForm() {
             console.log(res.data);
             setPosts(prev => [...prev, res.data]);
         })
-        // .then((res) => {
-        //     console.log(res.data);
-        //     const id = res.data.id;
-        //     navigate('/posts/' + id);
-        // });
+            .then((res) => {
+                console.log(res.data);
+                const id = res.data.id;
+                navigate('/posts/' + id);
+            });
         setPost(initialPost);
 
         // // controllo se il campo è vuoto
