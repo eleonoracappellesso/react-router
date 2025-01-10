@@ -53,4 +53,7 @@ footer {
   background-color: #333333;
   color: white;
   font-size: smaller;
+  position: relative;
+  bottom: 0;
+  left: 0;
 }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 // import { allPosts } from "../data/post";
 import CardComponent from "../components/CardComponent"
-import PostForm from "../pages/PostForm";
+// import PostForm from "../pages/PostForm";
 
 import axios from "axios";
 
@@ -65,7 +65,7 @@ function MainComponent() {
                 ))}
             </section>
             {/*includo il form e gli passo la funzione per inviare il nuovo post al component padre, il main */}
-            <PostForm setPosts={setPosts} />
+            {/* <PostForm setPosts={setPosts} /> */}
         </main>
     )
 }

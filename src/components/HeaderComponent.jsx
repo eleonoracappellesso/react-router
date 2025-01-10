@@ -27,11 +27,11 @@ function HeaderComponent() {
                                         Home
                                     </NavLink>
                                 </li>
-                                {/* <li className="nav-item">
+                                <li className="nav-item">
                                     <NavLink className="nav-link" to="/create">
                                         Nuovo Post
                                     </NavLink>
-                                </li> */}
+                                </li>
                                 <li className="nav-item">
                                     <NavLink className="nav-link" to="/contact">
                                         Contact Us

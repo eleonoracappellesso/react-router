@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import DefaultLayout from "./layouts/DefaultLayout";
 import ContactPage from "./pages/ContactPage";
 import InfoPage from "./pages/InfoPage";
-//import PostForm from "./pages/PostForm";
+import PostForm from "./pages/PostForm";
 
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route Component={DefaultLayout}>
           <Route index Component={MainComponent} />
-          {/* <Route path="create" Component={PostForm} /> */}
+          <Route path="create" Component={PostForm} />
           <Route path="/contact" Component={ContactPage} />
           <Route path="/info" Component={InfoPage} />
         </Route>

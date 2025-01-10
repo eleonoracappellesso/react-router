@@ -13,10 +13,11 @@ const initialPost = {
 
 const myApiUrl = "http://localhost:3000";
 
-function PostForm({ setPosts }) {
+function PostForm() {
     // const tagList = tags();
     const [post, setPost] = useState(initialPost);
     const [selectedTags, setSelectedTags] = useState([]); // Stato per i tag selezionati
+    const [posts, setPosts] = useState([]);
 
     useEffect(() => {
         getTags();
@@ -76,7 +77,7 @@ function PostForm({ setPosts }) {
     }
 
     return (
-        <section className="my-4">
+        <section className="m-4">
             <h4 className="text-uppercase">Inserisci un nuovo post:</h4>
             <form onSubmit={handleSubmit}>
                 <div>
